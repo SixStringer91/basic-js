@@ -9,27 +9,28 @@
 <body>
   
   <script>
-const MODERN_ACTIVITY= 15; 
-const HALF_LIFE_PERIOD= 5730;
+const springDate = new Date(81, 10, 13, 12, 50, 13, 493);
+function getSeason(date) {
+  if(typeof date !== 'object') return 'Unable to determine the time of year!'
+  if (date.hasOwnProperty("getMonth")) {
+    throw new TypeError;
+  }
 
-function createDreamTeam(arr) {
-  if(!Array.isArray(arr)) return false;
-  return arr.filter(el => typeof el ==='string').map(el=>el.trim()).map(el => el[0].toUpperCase()).sort().join('');
+const month = date.getMonth();
+if((month >= 0&&month< 2)||month===11){
+  return 'winter'
+}
+if(month >=2&&month< 5){
+  return 'spring'
+}
+if(month >=5&&month< 8){
+  return 'summer'
+}
+if(month >=8&&month< 11){
+  return 'autumn'
+}
 };
 
-console.log(createDreamTeam(([
-        ['David Abram'],
-        ['Robin Attfield'],
-        'Thomas Berry',
-        ['Paul R.Ehrlich'],
-        'donna Haraway',
-        ' BrIaN_gOodWiN  ',
-        {
-          0: 'Serenella Iovino'
-        },
-        'Erazim Kohak',
-        '  val_plumwood',
-      ])))
   </script>
 </body>
 </html>

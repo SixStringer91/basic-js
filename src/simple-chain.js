@@ -15,11 +15,9 @@ const chainMaker =  {
   removeLink(position) {
     if(typeof position !== 'number'&&this.getLength()) {
         this.chain = [];
-        throw new CustomError('THROWN');
+        throw new Error();
     }
     else this.chain.splice(position-1, 1);
-    
-    
     return this
   },
   reverseChain() {
